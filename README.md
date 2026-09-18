@@ -52,7 +52,7 @@ python extract_wiki.py --dump_path path/to/dump.xml.bz2 --output_dir ./wiki_ro/
 ```
 
 ## To Do
-- [] Fix PDF format (remove tags on page, as it can affect NLP classification)
+- [ ] Fix PDF format (remove tags on page, as it can affect NLP classification)
 
 ## Disclaimer
 For the creation of this program I used AI:
