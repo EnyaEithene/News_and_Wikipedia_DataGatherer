@@ -8,9 +8,17 @@ Creates structured Romanian datasets for NLP pipeline testing and model training
 - `extract_wiki.py` - Extracts categorized Wikipedia articles from dump files → JSONL format
 
 ## Workflow
+### PDFs from news articles
 1. **Run step1**: Scrape news articles → `articles_to_label.csv` (requires manual category/tag labeling)
-2. **Step2**: Convert CSV → PDF in `./labeled_articles/` directory
-3. **Extract Wiki**: Parse Wikipedia dump → `wiki_articles.jsonl` with auto-categorized topics
+2. **Run step2**: Convert CSV → PDF in `./labeled_articles/` directory
+
+From the gathered data, it can be used to simulate a real-life scenario where an user might have multiple PDF files on their computer.
+I personally used it for NLP semantic search, but the PDFs created could be tested on NLP classification as well.
+
+### JSONL data from Wikipedia Dump
+1. **Run Extract Wiki**: Parse Wikipedia dump → `wiki_articles.jsonl` with auto-categorized topics
+
+I used it for NLP semantic search and classification; this has an easier time with classification, as it doesn't require manual tagging for proper testing.
 
 ## Dataset Categories (for Wikipedia articles) 
 - Sport,
@@ -39,9 +47,12 @@ Creates structured Romanian datasets for NLP pipeline testing and model training
 python step1_scrape_to_csv.py --sources list --max_articles 50
 python step2_csv_to_pdf.py --input_csv articles.csv --output_dir ./labeled/
 
-# Wikipedia dump
+# Wikipedia Dump
 python extract_wiki.py --dump_path path/to/dump.xml.bz2 --output_dir ./wiki_ro/
 ```
+
+## To Do
+- [] Fix PDF format (remove tags on page, as it can affect NLP classification)
 
 ## Disclaimer
 For the creation of this program I used AI:
